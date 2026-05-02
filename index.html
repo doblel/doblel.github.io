@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DobleL Solutions</title>
+  <link rel="icon" href="./favicon.svg" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --clr-bg: #f9f9f7;
+      --clr-surface: #ffffff;
+      --clr-primary: #1a1a2e;
+      --clr-accent: #4f6ef7;
+      --clr-muted: #6b7280;
+      --clr-border: #e5e7eb;
+      --radius: 10px;
+      --max-w: 780px;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--clr-bg);
+      color: var(--clr-primary);
+      line-height: 1.65;
+      font-size: 16px;
+    }
+
+    a { color: var(--clr-accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Layout ── */
+    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 1.5rem; }
+
+    /* ── Header ── */
+    header {
+      background: var(--clr-surface);
+      border-bottom: 1px solid var(--clr-border);
+      padding: 1.25rem 0;
+    }
+    header .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .logo {
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--clr-primary);
+    }
+    nav a {
+      font-size: 0.9rem;
+      color: var(--clr-muted);
+      margin-left: 1.5rem;
+    }
+    nav a:hover { color: var(--clr-accent); text-decoration: none; }
+
+    /* ── Hero ── */
+    .hero {
+      padding: 5rem 0 4rem;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--clr-muted);
+      max-width: 540px;
+      margin: 0 auto 2rem;
+    }
+    .btn {
+      display: inline-block;
+      background: var(--clr-accent);
+      color: #fff;
+      padding: 0.75rem 1.75rem;
+      border-radius: var(--radius);
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: opacity 0.15s;
+    }
+    .btn:hover { opacity: 0.88; text-decoration: none; }
+
+    /* ── Sections ── */
+    section { padding: 3.5rem 0; }
+    section + section { border-top: 1px solid var(--clr-border); }
+    .section-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--clr-accent);
+      margin-bottom: 0.6rem;
+    }
+    h2 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+    }
+    p + p { margin-top: 0.75rem; }
+
+    /* ── Services grid ── */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 1.25rem;
+      margin-top: 2rem;
+    }
+    .card {
+      background: var(--clr-surface);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--radius);
+      padding: 1.4rem;
+    }
+    .card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.4rem; }
+    .card p { font-size: 0.9rem; color: var(--clr-muted); }
+
+    /* ── Business info ── */
+    .info-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+      margin-top: 1.5rem;
+    }
+    .info-table tr { border-bottom: 1px solid var(--clr-border); }
+    .info-table tr:last-child { border-bottom: none; }
+    .info-table td { padding: 0.65rem 0; }
+    .info-table td:first-child {
+      width: 180px;
+      color: var(--clr-muted);
+      font-size: 0.88rem;
+    }
+    .info-table td:last-child { font-weight: 500; }
+    .placeholder {
+      color: #c0392b;
+      font-style: italic;
+    }
+
+    /* ── Contact ── */
+    .contact-block {
+      background: var(--clr-surface);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--radius);
+      padding: 2rem;
+      margin-top: 1.5rem;
+    }
+    .contact-block p { color: var(--clr-muted); font-size: 0.95rem; }
+    .contact-block .contact-email {
+      display: inline-block;
+      margin-top: 0.75rem;
+      font-size: 1.05rem;
+      font-weight: 600;
+    }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid var(--clr-border);
+      padding: 2rem 0;
+      font-size: 0.85rem;
+      color: var(--clr-muted);
+    }
+    footer .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+
+    @media (max-width: 520px) {
+      nav { display: none; }
+      .info-table td:first-child { width: 130px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Header ── -->
+  <header>
+    <div class="container">
+      <span class="logo">DobleL Solutions</span>
+      <nav>
+        <a href="#diensten">Diensten</a>
+        <a href="#over">Over</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ── Hero ── -->
+  <div class="hero">
+    <div class="container">
+      <h1>Ik bouw digitale producten<br>die echt werken</h1>
+      <p>Van idee tot werkende web- of mobiele applicatie — op maat gebouwd, op tijd opgeleverd.</p>
+      <a href="#contact" class="btn">Vertel me over je project</a>
+    </div>
+  </div>
+
+  <!-- ── Services ── -->
+  <section id="diensten">
+    <div class="container">
+      <div class="section-label">Diensten</div>
+      <h2>Wat ik aanbied</h2>
+      <p>Ik help bedrijven en ondernemers met het bouwen van betrouwbare, gebruiksvriendelijke digitale producten — van eerste schets tot live product.</p>
+      <div class="services-grid">
+        <div class="card">
+          <h3>Webapplicaties op maat</h3>
+          <p>Van eenvoudige websites tot complexe webapps. Gebouwd op moderne technologie, afgestemd op jouw processen en doelgroep.</p>
+        </div>
+        <div class="card">
+          <h3>Mobiele applicaties</h3>
+          <p>Native of cross-platform apps voor iOS en Android. Gebruiksvriendelijk, snel en goed te onderhouden.</p>
+        </div>
+        <div class="card">
+          <h3>API's &amp; Integraties</h3>
+          <p>Systemen die niet met elkaar praten kosten tijd en geld. Ik verbind je tools en automatiseer je workflows.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── About ── -->
+  <section id="over">
+    <div class="container">
+      <div class="section-label">Over mij</div>
+      <h2>Lisandro Lucatti</h2>
+      <p>Ik ben een freelance software developer gevestigd in Haarlem. Ik werk voor startups, scale-ups en mkb-bedrijven die een betrouwbare technische partner zoeken — iemand die meedenkt, direct communiceert en gewoon goede software oplevert.</p>
+    </div>
+  </section>
+
+  <!-- ── Business Info (required for Mollie / KVK) ── -->
+  <section id="bedrijfsgegevens">
+    <div class="container">
+      <div class="section-label">Bedrijfsgegevens</div>
+      <h2>Zakelijke informatie</h2>
+      <table class="info-table" aria-label="Bedrijfsgegevens">
+        <tr>
+          <td>Bedrijfsnaam</td>
+          <td><span class="placeholder">DobleL Solutions</span></td>
+        </tr>
+        <tr>
+          <td>KVK-nummer</td>
+          <td><span class="placeholder">42026135</span></td>
+        </tr>
+        <tr>
+          <td>BTW-nummer</td>
+          <td><span class="placeholder">NL005440074B60</span></td>
+        </tr>
+        <tr>
+          <td>Adres</td>
+          <td><span class="placeholder">Javastraat 19, 2022XP Haarlem</span></td>
+        </tr>
+        <tr>
+          <td>E-mail</td>
+          <td><a href="mailto:[emailadres]"><span class="placeholder">lisandrolucatti@gmail.com</span></a></td>
+        </tr>
+        <tr>
+          <td>Telefoon</td>
+          <td><span class="placeholder">+31 6 48715306</span></td>
+        </tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- ── Contact ── -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-label">Contact</div>
+      <h2>Laten we kennismaken</h2>
+      <div class="contact-block">
+        <p>Heb je een vraag of wil je samenwerken? Stuur me een e-mail en ik reageer binnen één werkdag.</p>
+        <a class="contact-email" href="mailto:[emailadres]">
+          <span class="placeholder">lisandrolucatti@gmail.com</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ── -->
+  <footer>
+    <div class="container">
+      <span>&copy; <span id="year"></span> <span class="placeholder">DobleL Solutions</span>. Alle rechten voorbehouden.</span>
+      <span>KVK <span class="placeholder">42026135</span> &nbsp;|&nbsp; BTW <span class="placeholder">NL005440074B60</span></span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
